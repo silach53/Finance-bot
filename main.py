@@ -18,11 +18,11 @@ def start(update: Update) -> None:
     \nДля получения инструкций наберите: "/help"''')
 
 
-def help_command(update: Update, context: CallbackContext) -> None:
+def help_command(update: Update) -> None:
     update.message.reply_text(help_mes)
 
 
-def message_handler(update: Update, context: CallbackContext) -> None:
+def message_handler(update: Update) -> None:
     chat_id = update.message.chat_id
 
     # Защита от несанкционированного доступа
