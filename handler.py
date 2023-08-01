@@ -198,6 +198,7 @@ def short_balance(chat_id):
 
 def bills_view(chat_id):
     ans = ""
+
     last_in_bills = service.spreadsheets().values().get(
         spreadsheetId=spreadsheet_id[chat_id],
         range=f"Technical!H1",

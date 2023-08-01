@@ -12,7 +12,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 
-def start(update: Update, context: CallbackContext) -> None:
+def start(update: Update) -> None:
     user = update.effective_user
     update.message.reply_markdown_v2(f'''Hi {user.mention_markdown_v2()}!\
     \nДля получения инструкций наберите: "/help"''')
@@ -27,7 +27,7 @@ def message_handler(update: Update, context: CallbackContext) -> None:
 
     # Защита от несанкционированного доступа
     if not (chat_id in handler.spreadsheet_id):
-        update.message.reply_text("Access denied\n Your chat_id: ", chat_id)
+        update.message.reply_text("Access denied\n Your chat_id: ", str(chat_id))
         return
 
     mes = update.message.text
